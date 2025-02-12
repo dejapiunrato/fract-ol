@@ -1,7 +1,7 @@
 # Funciones de MiniLibX
 En este documento intentaré explicar con detalle las funciones de la _MiniLib_ que use en el proyecto.
 
-## `mlx_init()`
+### `mlx_init()`
 Función para crear una instancia de _MiniLibX_, devuelve un puntero que representa dicha instancia o `NULL` si algo falló.
 
 Prototipo:
@@ -9,7 +9,9 @@ Prototipo:
 void	*mlx_init();
 ```
 
-## `mlx_new_window()`
+---
+
+### `mlx_new_window()`
 Función para crear una nueva ventana, devuelve un puntero a la ventana creada o `NULL` en caso de que algo falle.
 
 Prototipo:
@@ -21,7 +23,9 @@ void	*mlx_new_window(t_xvar *xvar,int size_x,int size_y,char *title);
 - `size_y` Alto de la ventana en píxeles.
 - `title`Nombre de la ventana.
 
-## `mlx_loop()`
+---
+
+### `mlx_loop()`
 Mantener una instancia de _MiniLibX_ en ejecución, esto es útil para poder manejar eventos (lo que pasa cuándo se pulsa una tecla o se mueve el ratón).
 Esta función devuelve siempre `0`.
 Prototipo:
@@ -30,7 +34,9 @@ int	mlx_loop(t_xvar *xvar);
 ```
 - `xvar` Puntero a una estructura `t_xvar` que representa la instancia de _MiniLibX_ que se quiere mantener en ejecución.
 
-## `mlx_destroy_window()`
+---
+
+### `mlx_destroy_window()`
 Función para cerrar una ventana.
 Prototipo:
 ```C
@@ -39,7 +45,9 @@ int	mlx_destroy_window(t_xvar *xvar,t_win_list *win);
 - `xvar` Instancia de _MiniLibX_ que tiene la ventana abierta.
 - `win` Ventana que se quiere cerrar.
 
-## `mlx_hook()`
+---
+
+### `mlx_hook()`
 Esta función detecta un evento y aplica una función que recibe como parámetro.
 Prototipo:
 ```C
