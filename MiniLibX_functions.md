@@ -48,7 +48,7 @@ int	mlx_hook(t_win_list *win, int x_event, int x_mask, int (*funct)(),void *para
 - `win` Puntero a la ventana en la que se quiere registrar el evento.
 - `x_event` Tipo de evento que se desea capturar.
 	
-<details>
+	<details>
   <summary>Lista de eventos:</summary>
   <table>
     <tr>
@@ -231,7 +231,7 @@ int	mlx_hook(t_win_list *win, int x_event, int x_mask, int (*funct)(),void *para
 
 - `x_mask` Una máscara que expecifica qué eventos se quieren capturar.
 
-<details>
+	<details>
   <summary>Lista de máscaras</summary>
   <table>
     <tr>
