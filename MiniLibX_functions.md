@@ -1,6 +1,8 @@
 # Funciones de MiniLibX
 En este documento intentaré explicar con detalle las funciones de la _MiniLib_ que use en el proyecto.
 
+---
+
 ### `mlx_init()`
 Función para crear una instancia de _MiniLibX_, devuelve un puntero que representa dicha instancia o `NULL` si algo falló.
 
