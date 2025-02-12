@@ -385,10 +385,30 @@ int	mlx_hook(t_win_list *win, int x_event, int x_mask, int (*funct)(),void *para
     <tr>
       <td>2097152</td>
       <td>0x200000</td>
-      <td>FocusChange
+      <td>FocusChangeMask</td>
+      <td>Escucha eventos de cambio de foco de la ventana.</td>
+    </tr>
+    <tr>
+      <td>4194304</td>
+      <td>0x400000</td>
+      <td>PropertyChangeMask</td>
+      <td>Escucha cambios en las propiedades de la ventana.</td>
+    </tr>
+    <tr>
+      <td>8388608</td>
+      <td>0x800000</td>
+      <td>ColormapChangeMask</td>
+      <td>Escucha cambios en el mapa de colores de la ventana.</td>
+    </tr>
+    <tr>
+      <td>16777216</td>
+      <td>0x1000000</td>
+      <td>OwnerGrabButtonMask</td>
+      <td>Evita que otras aplicaciones intercepten eventos de botón mientras están presionados.</td>
     </tr>
   </table>
 </details>
+
 
 - `funct` Una función a la que se llamará cuándo ocurra el evento, esta función tiene que tener la firma `int (*funct)`, es decir, debe retornar un entero.
 - `param` Es un puntero a lso datos que se la pasarán a la función `funct`.
