@@ -76,19 +76,6 @@ Ejemplo:
 ```C
 #include <mlx.h>
 
-int	close_window(void *param)
-{
-	void **params;
-	void *mlx;
-	void *win;
-
-	params = (void **)param;
-	mlx = params[0];
-	win = params[1];
-	mlx_destroy_window(mlx, win);
-	exit(0);
-}
-
 int	main(void)
 {
 	void	*mlx;
@@ -109,3 +96,5 @@ Este código funciona de la siguiente forma:
 3. Almacena la instancia y la ventana en `params[2]`.
 4. En caso de que se clique el botón "cerrar ventana" se llama a `close_window` que cierra la ventana.
 6. Mantiene abierta la instancia con `mlx_loop()`
+
+### Dibujar píxeles en una imagen

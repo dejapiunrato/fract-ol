@@ -48,8 +48,8 @@ int	mlx_hook(t_win_list *win, int x_event, int x_mask, int (*funct)(),void *para
 - `win` Puntero a la ventana en la que se quiere registrar el evento.
 - `x_event` Tipo de evento que se desea capturar.
 	
-	<details>
-  <summary>Lista de eventos</summary>
+<details>
+  <summary>Lista de eventos:</summary>
   <table>
     <tr>
       <th>Código Numérico</th>
@@ -231,36 +231,154 @@ int	mlx_hook(t_win_list *win, int x_event, int x_mask, int (*funct)(),void *para
 
 - `x_mask` Una máscara que expecifica qué eventos se quieren capturar.
 
-	Lista de máscaras:
-
-	| Decimal  | Hexadecimal | Máscara               | Descripción                                        |
-	|----------|-------------|-----------------------|----------------------------------------------------|
-	| 0        | `0x000000`  | `NoEventMask`         | No escucha ningún evento.                         |
-	| 1        | `0x000001`  | `KeyPressMask`        | Escucha eventos de presión de tecla.              |
-	| 2        | `0x000002`  | `KeyReleaseMask`      | Escucha eventos de liberación de tecla.           |
-	| 4        | `0x000004`  | `ButtonPressMask`     | Escucha eventos de presión de botón del ratón.    |
-	| 8        | `0x000008`  | `ButtonReleaseMask`   | Escucha eventos de liberación de botón del ratón. |
-	| 16       | `0x000010`  | `EnterWindowMask`     | Escucha cuando el cursor entra en la ventana.     |
-	| 32       | `0x000020`  | `LeaveWindowMask`     | Escucha cuando el cursor sale de la ventana.      |
-	| 64       | `0x000040`  | `PointerMotionMask`   | Escucha el movimiento del cursor.                 |
-	| 128      | `0x000080`  | `PointerMotionHintMask` | Reduce la cantidad de eventos de movimiento del cursor. |
-	| 256      | `0x000100`  | `Button1MotionMask`   | Escucha el movimiento del cursor con el botón 1 presionado. |
-	| 512      | `0x000200`  | `Button2MotionMask`   | Escucha el movimiento del cursor con el botón 2 presionado. |
-	| 1024     | `0x000400`  | `Button3MotionMask`   | Escucha el movimiento del cursor con el botón 3 presionado. |
-	| 2048     | `0x000800`  | `Button4MotionMask`   | Escucha el movimiento del cursor con el botón 4 presionado. |
-	| 4096     | `0x001000`  | `Button5MotionMask`   | Escucha el movimiento del cursor con el botón 5 presionado. |
-	| 8192     | `0x002000`  | `ButtonMotionMask`    | Escucha el movimiento del cursor con cualquier botón presionado. |
-	| 16384    | `0x004000`  | `KeymapStateMask`     | Escucha cambios en el estado del teclado.         |
-	| 32768    | `0x008000`  | `ExposureMask`        | Escucha eventos cuando una ventana necesita ser redibujada. |
-	| 65536    | `0x010000`  | `VisibilityChangeMask` | Escucha cambios en la visibilidad de la ventana.  |
-	| 131072   | `0x020000`  | `StructureNotifyMask` | Escucha cambios en la estructura de la ventana.   |
-	| 262144   | `0x040000`  | `ResizeRedirectMask`  | Escucha solicitudes de cambio de tamaño de la ventana. |
-	| 524288   | `0x080000`  | `SubstructureNotifyMask` | Escucha cambios en la estructura de las subventanas. |
-	| 1048576  | `0x100000`  | `SubstructureRedirectMask` | Escucha solicitudes de cambio de estructura de subventanas. |
-	| 2097152  | `0x200000`  | `FocusChangeMask`     | Escucha eventos de cambio de foco de la ventana.  |
-	| 4194304  | `0x400000`  | `PropertyChangeMask`  | Escucha cambios en las propiedades de la ventana. |
-	| 8388608  | `0x800000`  | `ColormapChangeMask`  | Escucha cambios en el mapa de colores de la ventana. |
-	| 16777216 | `0x1000000` | `OwnerGrabButtonMask` | Evita que otras aplicaciones intercepten eventos de botón mientras están presionados. |
+<details>
+  <summary>Lista de máscaras</summary>
+  <table>
+    <tr>
+      <th>Decimal</th>
+      <th>Hexadecimal</th>
+      <th>Máscara</th>
+      <th>Descripción</th>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0x000000</td>
+      <td>NoEventMask</td>
+      <td>No escucha ningún evento.</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0x000001</td>
+      <td>KeyPressMask</td>
+      <td>Escucha eventos de presión de tecla.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0x000002</td>
+      <td>KeyReleaseMask</td>
+      <td>Escucha eventos de liberación de tecla.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0x000004</td>
+      <td>ButtonPressMask</td>
+      <td>Escucha eventos de presión de botón del ratón.</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>0x000008</td>
+      <td>ButtonReleaseMask</td>
+      <td>Escucha eventos de liberación de botón del ratón.</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>0x000010</td>
+      <td>EnterWindowMask</td>
+      <td>Escucha cuando el cursor entra en la ventana.</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>0x000020</td>
+      <td>LeaveWindowMask</td>
+      <td>Escucha cuando el cursor sale de la ventana.</td>
+    </tr>
+    <tr>
+      <td>64</td>
+      <td>0x000040</td>
+      <td>PointerMotionMask</td>
+      <td>Escucha el movimiento del cursor.</td>
+    </tr>
+    <tr>
+      <td>128</td>
+      <td>0x000080</td>
+      <td>PointerMotionHintMask</td>
+      <td>Reduce la cantidad de eventos de movimiento del cursor.</td>
+    </tr>
+    <tr>
+      <td>256</td>
+      <td>0x000100</td>
+      <td>Button1MotionMask</td>
+      <td>Escucha el movimiento del cursor con el botón 1 presionado.</td>
+    </tr>
+    <tr>
+      <td>512</td>
+      <td>0x000200</td>
+      <td>Button2MotionMask</td>
+      <td>Escucha el movimiento del cursor con el botón 2 presionado.</td>
+    </tr>
+    <tr>
+      <td>1024</td>
+      <td>0x000400</td>
+      <td>Button3MotionMask</td>
+      <td>Escucha el movimiento del cursor con el botón 3 presionado.</td>
+    </tr>
+    <tr>
+      <td>2048</td>
+      <td>0x000800</td>
+      <td>Button4MotionMask</td>
+      <td>Escucha el movimiento del cursor con el botón 4 presionado.</td>
+    </tr>
+    <tr>
+      <td>4096</td>
+      <td>0x001000</td>
+      <td>Button5MotionMask</td>
+      <td>Escucha el movimiento del cursor con el botón 5 presionado.</td>
+    </tr>
+    <tr>
+      <td>8192</td>
+      <td>0x002000</td>
+      <td>ButtonMotionMask</td>
+      <td>Escucha el movimiento del cursor con cualquier botón presionado.</td>
+    </tr>
+    <tr>
+      <td>16384</td>
+      <td>0x004000</td>
+      <td>KeymapStateMask</td>
+      <td>Escucha cambios en el estado del teclado.</td>
+    </tr>
+    <tr>
+      <td>32768</td>
+      <td>0x008000</td>
+      <td>ExposureMask</td>
+      <td>Escucha eventos cuando una ventana necesita ser redibujada.</td>
+    </tr>
+    <tr>
+      <td>65536</td>
+      <td>0x010000</td>
+      <td>VisibilityChangeMask</td>
+      <td>Escucha cambios en la visibilidad de la ventana.</td>
+    </tr>
+    <tr>
+      <td>131072</td>
+      <td>0x020000</td>
+      <td>StructureNotifyMask</td>
+      <td>Escucha cambios en la estructura de la ventana.</td>
+    </tr>
+    <tr>
+      <td>262144</td>
+      <td>0x040000</td>
+      <td>ResizeRedirectMask</td>
+      <td>Escucha solicitudes de cambio de tamaño de la ventana.</td>
+    </tr>
+    <tr>
+      <td>524288</td>
+      <td>0x080000</td>
+      <td>SubstructureNotifyMask</td>
+      <td>Escucha cambios en la estructura de las subventanas.</td>
+    </tr>
+    <tr>
+      <td>1048576</td>
+      <td>0x100000</td>
+      <td>SubstructureRedirectMask</td>
+      <td>Escucha solicitudes de cambio de estructura de subventanas.</td>
+    </tr>
+    <tr>
+      <td>2097152</td>
+      <td>0x200000</td>
+      <td>FocusChange
+    </tr>
+  </table>
+</details>
 
 - `funct` Una función a la que se llamará cuándo ocurra el evento, esta función tiene que tener la firma `int (*funct)`, es decir, debe retornar un entero.
 - `param` Es un puntero a lso datos que se la pasarán a la función `funct`.
