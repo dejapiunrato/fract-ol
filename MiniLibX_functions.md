@@ -38,6 +38,15 @@ int	mlx_loop(t_xvar *xvar);
 
 ---
 
+### `mlx_destroy_display()`
+Esta función cierra la conexión con el servidor de gráficos de Linux (X11). No cierra ventanas ni imágenes ni otros recursos.
+Prototipo:
+```C
+int	mlx_destroy_display(t_xvar *xvar);
+```
+- `xvar` Puntero a una estructura `t_xvar` que representa la instancia de _MiniLibX_ que se quiere cerrar.
+---
+
 ### `mlx_destroy_window()`
 Función para cerrar una ventana.
 Prototipo:

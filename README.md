@@ -16,6 +16,8 @@ int	main(void)
 	void	*mlx;
 
 	mlx = mlx_init();
+	if (!mlx)
+		return (1);
 	return (0);
 }
 ```
@@ -29,6 +31,7 @@ Usaremos la función [`mlx_new_window()`](https://github.com/dejapiunrato/fract-
 Ejemplo:
 ```C
 #include <mlx.h>
+#include <stdlib.h>
 
 int	main(void)
 {
@@ -36,7 +39,15 @@ int	main(void)
 	void	*win;
 
 	mlx = mlx_init();
+	if (!mlx)
+		return (1);
 	win = mlx_new_window(mlx, 1920, 1024, "Hola Caracola");
+	if (!win)
+	{
+		mlx_destroy_display(mlx); // Explicado más abajo.
+		free(mlx);
+		return (1);
+	}
 	mlx_loop(mlx);
 	return (0);
 }
@@ -44,7 +55,7 @@ int	main(void)
 ---
 
 ### Cerrar una ventana
-Para cerrar una ventana haremos uso de la función [`mlx_destroy_window()`](https://github.com/dejapiunrato/fract-ol/blob/main/MiniLibX_functions.md#mlx_destroy_window) que recibe dos argumentos, un puntero a la instancia de _MiniLibX_ que mantiene la ventana abierta y otro puntero que representa la ventana que se quiere cerrar.
+Para cerrar una ventana haremos uso de la función [`mlx_destroy_window()`](https://github.com/dejapiunrato/fract-ol/blob/main/MiniLibX_functions.md#mlx_destroy_window) para cerrar la ventana y [`mlx_destroy_display()`](https://github.com/dejapiunrato/fract-ol/blob/main/MiniLibX_functions.md#mlx_destroy_display) para cerrar la conexión con el servidor de gráficos de linux.
 
 Ejemplo:
 ```C
@@ -60,6 +71,8 @@ int	close_window(void *param)
 	mlx = params[0];
 	win = params[1];
 	mlx_destroy_window(mlx, win);
+	mlx_destroy_display(mlx);
+	free(mlx);
 	exit(0);
 }
 ```
@@ -83,7 +96,15 @@ int	main(void)
 	void	*params[2];
 
 	mlx = mlx_init();
-	win = mlx_new_window(mlx, 1920, 1080, "Hola caracola");
+	if (!mlx)
+		return (1);
+	win = mlx_new_window(mlx, 1920, 1024, "Hola Caracola");
+	if (!win)
+	{
+		mlx_destroy_display(mlx);
+		free(mlx);
+		return (1);
+	}
 	params[0] = mlx;
 	params[1] = win;
 	mlx_hook(win, 17, 0, close_window, params);
