@@ -6,7 +6,7 @@
 /*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 23:51:12 by psevilla          #+#    #+#             */
-/*   Updated: 2025/02/13 00:18:04 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:39:27 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	main(int argc, char **argv)
 		{
 			// Asignar los argumentos a x e y
 		}
-		//init_fractal(&fractal)
+		start_fractal(&fractal);
 		//fractal_render(&fractal)
-		mlx_loop(fractal.mlx);
+		//show_fractal(fractal.mlx);
 	}
 	else
 	{
