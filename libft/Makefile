@@ -64,7 +64,8 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@ar rcs $@ $^
-
+	@echo libft creada
+	
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
