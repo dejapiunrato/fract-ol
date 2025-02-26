@@ -41,7 +41,6 @@ clean:
 fclean: clean
 	@rm -rf $(NAME) $(OBJDIR)
 	@$(MAKE) -C $(LIBFTDIR) fclean
-	@$(MAKE) -C $(MLXDIR) clean
 
 re: fclean all
 

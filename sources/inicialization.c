@@ -6,7 +6,7 @@
 /*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 00:16:35 by psevilla          #+#    #+#             */
-/*   Updated: 2025/02/24 18:46:06 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/02/25 20:21:20 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,18 @@ static void	free_display(t_fractal *fractal)
 	malloc_error();
 }
 
-static void	start_events(t_fractal *fractal)
+/*static void	start_events(t_fractal *fractal)
 {
 	mlx_hook(fractal->mlx, KeyPress, KeyPressMask, key_parse, fractal);
 	mlx_hook(fractal->mlx, ButtonPress, ButtonPressMask, button_parse, fractal);
 	mlx_hook(fractal->mlx, DestroyNotify, StructureNotifyMask, close_fractal, fractal);
 	mlx_hook(fractal->mlx, MotionNotify, PointerMotionMask, julia_track, fractal);
+}*/
+
+void	start_data(t_fractal *fractal)
+{
+	fractal->escape_value = 4;
+	fractal->resolution = 314;
 }
 
 void	start_fractal(t_fractal *fractal)
@@ -51,5 +57,6 @@ void	start_fractal(t_fractal *fractal)
 			&fractal->img.bpp,
 			&fractal->img.line_len,
 			&fractal->img.endian);
-	start_events(fractal);
+	//start_events(fractal);
+	start_data(fractal);
 }
