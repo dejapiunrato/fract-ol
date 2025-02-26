@@ -5,7 +5,7 @@
 #include <stdio.h>			// perror
 #include <string.h>			// strerror
 #include <math.h>			// mathematic functions
-# include <X11/X.h>			
+# include <X11/X.h>
 # include <X11/keysym.h>
 
 int	close_win(void **params)
@@ -13,7 +13,7 @@ int	close_win(void **params)
 	void	*win;
 	void	*mlx;
 
-	win = params[]
+	win = params[];
 }
 
 int	main(void)
