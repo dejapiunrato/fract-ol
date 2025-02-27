@@ -6,7 +6,7 @@
 /*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 00:16:35 by psevilla          #+#    #+#             */
-/*   Updated: 2025/02/25 20:21:20 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:44:00 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	free_display(t_fractal *fractal)
 void	start_data(t_fractal *fractal)
 {
 	fractal->escape_value = 4;
-	fractal->resolution = 314;
+	fractal->resolution = 42;
 }
 
 void	start_fractal(t_fractal *fractal)
@@ -44,10 +44,10 @@ void	start_fractal(t_fractal *fractal)
 	fractal->mlx = mlx_init();
 	if (!fractal->mlx)
 		malloc_error();
-	fractal->win = mlx_new_window(fractal->mlx, WIDTH, HEIGTH, fractal->name);
+	fractal->win = mlx_new_window(fractal->mlx, WIDTH, HEIGHT, fractal->name);
 	if (!fractal->win)
 		free_display(fractal);
-	fractal->img.img = mlx_new_image(fractal->mlx, WIDTH, HEIGTH);
+	fractal->img.img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT);
 	if (!fractal->img.img)
 	{
 		mlx_destroy_window(fractal->mlx, fractal->win);

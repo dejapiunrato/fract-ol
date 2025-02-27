@@ -1,7 +1,7 @@
 # Variables
 NAME = fractol
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 INCLUDES = -Iincludes -Ilibft/includes -Iminilibx_linux
 LDFLAGS = -L$(LIBFTDIR) -lft -L$(MLXDIR) -lmlx -lX11 -lXext -lm
 

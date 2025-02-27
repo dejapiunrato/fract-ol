@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractol.h_                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 12:54:32 by psevilla          #+#    #+#             */
-/*   Updated: 2025/02/25 20:13:54 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:26:55 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@
 # include "libft.h"			// libft functions
 # include "mlx.h"			// MiniLibX functions
 
-#define ERROR_MSG "Lo has hecho mal:\n\t./fractol mandelbrot\n\t./fractol julia <valor 1> <valor 2>"
+#define ERROR_MSG "Lo has hecho mal:\n\t./fractol mandelbrot\n\t./fractol julia <valor 1> <valor 2>\n"
 
 // Tamaño de la ventana
 #define WIDTH	1000
-#define HEIGTH	1000
+#define HEIGHT	1000
 
 // Colores
 #define BLACK	0X000000
@@ -65,8 +65,8 @@ typedef struct	s_fractal
 	t_img	img;
 	double	escape_value;
 	int		resolution;
-	double	julia_r;
-	double	julia_i;
+	double	julia_x;
+	double	julia_y;
 
 }	t_fractal;
 

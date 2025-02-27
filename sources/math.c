@@ -1,8 +1,8 @@
 #include "fractol.h"
 
-double	scale_num(double num, double min, double max, double new_max)
+double scale_num(double unscaled_num, double new_min, double new_max, double old_max)
 {
-	return (-2 + ((num - min) / (max - min)) * new_max);
+	return (new_max - new_min) * unscaled_num / old_max + new_min;
 }
 
 t_complex	ft_square(t_complex num)
