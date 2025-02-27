@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h_                                         :+:      :+:    :+:   */
+/*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 12:54:32 by psevilla          #+#    #+#             */
-/*   Updated: 2025/02/27 17:26:55 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/02/27 18:23:03 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void		start_fractal(t_fractal *fractal);
 
 // events.c
 int			close_fractal(t_fractal *fractal);
-int			key_parse(t_fractal *fractal);
+int			key_parse(int keysym, t_fractal *fractal);
 int			button_parse(t_fractal *fractal);
 int			julia_track(t_fractal *fractal);
 
