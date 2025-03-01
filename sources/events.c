@@ -9,21 +9,37 @@ int	close_fractal(t_fractal *fractal)
 	exit(EXIT_SUCCESS);
 }
 
-/* int	key_parse(int keysym, t_fractal *fractal)
+ int	key_parse(int key, t_fractal *fractal)
 {
-	if (keysym == XK_Escape)
+	if (key == XK_Escape)
 		close_fractal(fractal);
-
+	if (key == XK_Right)
+		fractal->move_x += 0.2 * fractal->zoom;
+	else if (key == XK_Left)
+		fractal->move_x -= 0.2 * fractal->zoom;
+	else if (key == XK_Up)
+		fractal->move_y += 0.2 * fractal->zoom;
+	else if (key == XK_Down)
+		fractal->move_y -= 0.2 * fractal->zoom;
 	show_fractal(fractal);
 	return (0);
-} */
-/*
-int	button_parse(t_fractal *fractal)
-{
-	// por hacer
 }
 
-int	julia_track(t_fractal *fractal)
+int	mouse_parse(int button, int x, int y, t_fractal *fractal)
+{
+	fractal->move_x = scale_num(x, -2.25, +2.25, WIDTH);
+	fractal->move_y = scale_num(y, +2.25, -2.25, HEIGHT);
+	if (button == Button4)
+		fractal->zoom *= 0.9;
+	else if (button == Button5)
+		fractal->zoom *= 1.1;
+	printf("x --> %d\ny --> %d\nmove_x --> %f\nmove_y --> %f\n\n", x, y, fractal->move_x, fractal->move_y);
+	
+	show_fractal(fractal);
+	return  (0);
+}
+
+/*int	julia_track(t_fractal *fractal)
 {
 	// por hacer
 }*/

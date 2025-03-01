@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inicialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 00:16:35 by psevilla          #+#    #+#             */
-/*   Updated: 2025/02/27 18:44:08 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/03/01 23:44:05 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static void	free_display(t_fractal *fractal)
 
 static void	start_events(t_fractal *fractal)
 {
- 	/* mlx_hook(fractal->win, KeyPress, KeyPressMask, key_parse, fractal); */
-	/*mlx_hook(fractal->win, ButtonPress, ButtonPressMask, button_parse, fractal); */
+ 	mlx_hook(fractal->win, KeyPress, KeyPressMask, key_parse, fractal);
+	mlx_hook(fractal->win, ButtonPress, ButtonPressMask, mouse_parse, fractal);
 	mlx_hook(fractal->win, DestroyNotify, StructureNotifyMask, close_fractal, fractal);
 	/* mlx_hook(fractal->win, MotionNotify, PointerMotionMask, julia_track, fractal); */
 }
@@ -37,6 +37,9 @@ void	start_data(t_fractal *fractal)
 {
 	fractal->escape_value = 4;
 	fractal->resolution = 42;
+	fractal->move_x = 0; // + derecha | - izquierda
+	fractal->move_y = 0; // + arriba | - abajo
+	fractal->zoom = 1; //[0 , 1] Zoom out | [1 , ...] Zoom in
 }
 
 void	start_fractal(t_fractal *fractal)

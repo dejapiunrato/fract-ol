@@ -27,17 +27,20 @@ static void	check_pixel(int x, int y, t_fractal *fractal)
 	t_complex	z;
 	t_complex	c;
 	int			i;
+	int			color;
 
-	z.x = scale_num(x, -2, +2, WIDTH);
-	z.y = scale_num(y, +2, -2, HEIGHT);
+	z.x = scale_num(x, -2.25, +2.25, WIDTH) * fractal->zoom + fractal->move_x;
+	z.y = scale_num(y, +2.25, -2.25, HEIGHT) * fractal->zoom + fractal->move_y;
 	julia_or_mandel(&z, &c, fractal);
 	i = 0;
+	color = BLACK;
 	while (i < fractal->resolution)
 	{
 		z = ft_sum(ft_square(z), c);
 		if ((z.x * z.x) + (z.y * z.y) > fractal->escape_value)
 		{
-			put_pixel(x, y, BLACK, &fractal->img);
+			color = scale_num(i, BLACK, WHITE, fractal->resolution);
+			put_pixel(x, y, color, &fractal->img);
 			return ;
 		}
 		++i;	

@@ -7,7 +7,6 @@ double scale_num(double unscaled_num, double new_min, double new_max, double old
 
 t_complex	ft_square(t_complex num)
 {
-	// [ ] Falta por hacer
 	t_complex	result;
 
 	result.x = (num.x * num.x) - (num.y * num.y);

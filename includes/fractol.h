@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 12:54:32 by psevilla          #+#    #+#             */
-/*   Updated: 2025/02/27 18:23:03 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/03/01 23:43:54 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ typedef struct	s_fractal
 	int		resolution;
 	double	julia_x;
 	double	julia_y;
+	double	move_x;
+	double	move_y;
+	double	zoom;
 
 }	t_fractal;
 
@@ -75,8 +78,8 @@ void		start_fractal(t_fractal *fractal);
 
 // events.c
 int			close_fractal(t_fractal *fractal);
-int			key_parse(int keysym, t_fractal *fractal);
-int			button_parse(t_fractal *fractal);
+int			key_parse(int key, t_fractal *fractal);
+int			mouse_parse(int button, int x, int y, t_fractal *fractal);
 int			julia_track(t_fractal *fractal);
 
 // math.c
