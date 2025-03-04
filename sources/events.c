@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   events.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/04 17:54:32 by psevilla          #+#    #+#             */
+/*   Updated: 2025/03/04 17:55:14 by psevilla         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 int	close_fractal(t_fractal *fractal)
@@ -9,7 +21,7 @@ int	close_fractal(t_fractal *fractal)
 	exit(EXIT_SUCCESS);
 }
 
- int	key_parse(int key, t_fractal *fractal)
+int	key_parse(int key, t_fractal *fractal)
 {
 	if (key == XK_Escape)
 		close_fractal(fractal);
@@ -33,13 +45,6 @@ int	mouse_parse(int button, int x, int y, t_fractal *fractal)
 		fractal->zoom *= 0.9;
 	else if (button == Button5)
 		fractal->zoom *= 1.1;
-	printf("x --> %d\ny --> %d\nmove_x --> %f\nmove_y --> %f\n\n", x, y, fractal->move_x, fractal->move_y);
-	
 	show_fractal(fractal);
-	return  (0);
+	return (0);
 }
-
-/*int	julia_track(t_fractal *fractal)
-{
-	// por hacer
-}*/

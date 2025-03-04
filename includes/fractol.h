@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 12:54:32 by psevilla          #+#    #+#             */
-/*   Updated: 2025/03/01 23:43:54 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/03/04 17:52:48 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 # include "libft.h"			// libft functions
 # include "mlx.h"			// MiniLibX functions
 
-#define ERROR_MSG "Lo has hecho mal:\n\t./fractol mandelbrot\n\t./fractol julia <valor 1> <valor 2>\n"
+#define ERROR_MSG1 "Error: invalid input\n\t./fractol mandelbrot\n\t./fractol julia <double> <double>\n"
+#define ERROR_MSG2 "Error: invalid input for Julia\n"
 
 // Tamaño de la ventana
 #define WIDTH	1000
@@ -33,11 +34,6 @@
 // Colores
 #define BLACK	0X000000
 #define WHITE	0xFFFFFF
-#define YELLOW	0xFFFF00
-#define RED		0xFF0000
-#define ORANGE	0xFFA500
-#define BLUE	0x0000FF
-#define GREEN	0x008000
 
 // Número complejo
 typedef struct	s_complex
@@ -82,10 +78,11 @@ int			key_parse(int key, t_fractal *fractal);
 int			mouse_parse(int button, int x, int y, t_fractal *fractal);
 int			julia_track(t_fractal *fractal);
 
-// math.c
+// utils.c
 double		scale_num(double num, double min, double max, double new_max);
 t_complex	ft_square(t_complex num);
 t_complex	ft_sum(t_complex num1, t_complex num2);
+double		ft_atod(const char *s);
 
 // show_fractal.c
 void		show_fractal(t_fractal	*fractal);

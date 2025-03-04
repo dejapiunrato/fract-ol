@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   show_fractal.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/04 17:57:46 by psevilla          #+#    #+#             */
+/*   Updated: 2025/03/04 17:58:00 by psevilla         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 static void	put_pixel(int x, int y, int color, t_img *img)
@@ -8,7 +20,7 @@ static void	put_pixel(int x, int y, int color, t_img *img)
 	*(unsigned int *)(img->addr + offset) = color;
 }
 
-static void julia_or_mandel(t_complex *z, t_complex *c, t_fractal *fractal)
+static void	julia_or_mandel(t_complex *z, t_complex *c, t_fractal *fractal)
 {
 	if (!ft_strncmp(fractal->name, "julia", 5))
 	{
@@ -43,7 +55,7 @@ static void	check_pixel(int x, int y, t_fractal *fractal)
 			put_pixel(x, y, color, &fractal->img);
 			return ;
 		}
-		++i;	
+		++i;
 	}
 	put_pixel(x, y, WHITE, &fractal->img);
 }
