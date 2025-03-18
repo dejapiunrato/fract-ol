@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:54:32 by psevilla          #+#    #+#             */
-/*   Updated: 2025/03/04 17:55:14 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/03/18 16:38:15 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	key_parse(int key, t_fractal *fractal)
 
 int	mouse_parse(int button, int x, int y, t_fractal *fractal)
 {
-	fractal->move_x = scale_num(x, -2.25, +2.25, WIDTH);
-	fractal->move_y = scale_num(y, +2.25, -2.25, HEIGHT);
+	x = 0;
+	y = 0;
 	if (button == Button4)
 		fractal->zoom *= 0.9;
 	else if (button == Button5)

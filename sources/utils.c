@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:58:12 by psevilla          #+#    #+#             */
-/*   Updated: 2025/03/04 18:00:34 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/03/18 16:57:51 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-double	scale_num(double unscaled_num, double new_min, double new_max, double old_max)
+double	scale_num(double unscaled, double min, double new_max, double old_max)
 {
-	return ((new_max - new_min) * unscaled_num / old_max + new_min);
+	return ((new_max - min) * unscaled / old_max + min);
 }
 
 t_complex	ft_square(t_complex num)
@@ -35,6 +35,20 @@ t_complex	ft_sum(t_complex num1, t_complex num2)
 	return (result);
 }
 
+static int	ft_atdo_sign(const char *s, int *i)
+{
+	int	neg;
+
+	neg = 1;
+	if (s[*i] == '+' || s[*i] == '-')
+	{
+		if (s[*i] == '-')
+			neg = -1;
+		(*i)++;
+	}
+	return (neg);
+}
+
 double	ft_atod(const char *s)
 {
 	int		i;
@@ -43,25 +57,19 @@ double	ft_atod(const char *s)
 	double	decimal;
 
 	i = 0;
-	neg = 1;
 	num = 0.0;
 	decimal = 0.1;
 	while ((s[i] == ' ' || (s[i] >= '\t' && s[i] <= '\r')))
 		i++;
-	if (s[i] == '+' || s[i] == '-')
-	{
-		if (s[i] == '-')
-			neg = -1;
-		i++;
-	}
-	while (s[i] >= '0' && s[i] <= '9')
+	neg = ft_atdo_sign(s, &i);
+	while (ft_isdigit(s[i]))
 	{
 		num = num * 10 + (s[i] - '0');
 		i++;
 	}
 	if (s[i] == '.')
 		i++;
-	while (s[i] >= '0' && s[i] <= '9')
+	while (ft_isdigit(s[i]))
 	{
 		num += (s[i] - '0') * decimal;
 		decimal /= 10;

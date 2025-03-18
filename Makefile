@@ -12,7 +12,11 @@ LIBFTDIR = libft
 MLXDIR = minilibx_linux
 
 # Archivos fuente
-SRCS = $(shell find $(SRCDIR) -type f -name '*.c')
+SRCS = sources/events.c \
+	sources/inicialization.c \
+	sources/main.c \
+	sources/show_fractal.c \
+	sources/utils.c
 
 # Archivos objeto
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)

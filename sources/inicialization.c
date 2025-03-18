@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inicialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 00:16:35 by psevilla          #+#    #+#             */
-/*   Updated: 2025/03/04 17:57:20 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/03/18 16:40:37 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,6 @@ static void	start_events(t_fractal *fractal)
 		StructureNotifyMask,
 		close_fractal,
 		fractal);
-	/* mlx_hook(fractal->win,
-		MotionNotify,
-		PointerMotionMask,
-		julia_track,
-		fractal); */
 }
 
 void	start_data(t_fractal *fractal)

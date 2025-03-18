@@ -3,47 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 12:54:32 by psevilla          #+#    #+#             */
-/*   Updated: 2025/03/04 17:52:48 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/03/18 17:02:09 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-#include <fcntl.h>			// open
-#include <unistd.h>			// close, read, write
-#include <stdlib.h>			// malloc, free, exit
-#include <stdio.h>			// perror
-#include <string.h>			// strerror
-#include <math.h>			// mathematic functions
+# include <fcntl.h>			// open
+# include <unistd.h>			// close, read, write
+# include <stdlib.h>			// malloc, free, exit
+# include <stdio.h>			// perror
+# include <string.h>			// strerror
+# include <math.h>			// mathematic functions
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include "libft.h"			// libft functions
 # include "mlx.h"			// MiniLibX functions
 
-#define ERROR_MSG1 "Error: invalid input\n\t./fractol mandelbrot\n\t./fractol julia <double> <double>\n"
-#define ERROR_MSG2 "Error: invalid input for Julia\n"
+# define ERROR_MSG1 "Error: invalid input\n\t./fractol mandelbrot\n\t \
+	./fractol julia <double> <double>\n"
+# define ERROR_MSG2 "Error: invalid input for Julia\n"
 
 // Tamaño de la ventana
-#define WIDTH	1000
-#define HEIGHT	1000
+# define WIDTH	1000
+# define HEIGHT	1000
 
 // Colores
-#define BLACK	0X000000
-#define WHITE	0xFFFFFF
+# define BLACK	0X000000
+# define WHITE	0xFFFFFF
 
 // Número complejo
-typedef struct	s_complex
+typedef struct s_complex
 {
 	double	x;
 	double	y;
 }	t_complex;
 
 // Datos de imagen de MiniLibX
-typedef struct	s_img
+typedef struct s_img
 {
 	void	*img;
 	char	*addr;
@@ -53,7 +54,7 @@ typedef struct	s_img
 }	t_img;
 
 // Información para representar el fractal
-typedef struct	s_fractal
+typedef struct s_fractal
 {
 	char	*name;
 	void	*mlx;
